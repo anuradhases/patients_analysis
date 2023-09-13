@@ -1,6 +1,6 @@
 # Patient Trends
 
-# I.	Executive Summary
+# I. Executive Summary
 
 The following is a statistical analysis for 33,865 patients. The goal is to provide insights of two sub-groups (pre-auth and direct booking) patients including: appointments booked within 1-week, rescheduling rates, and gender and age distributions.
 
@@ -8,27 +8,23 @@ There is a total of 33,865 patients with 99.8% as pre-authorized and 0.2% as dir
 
 Limitations of analysis and assumptions were made, to provide accurate statistical analyses.
 
-# II.	Narrative
+# II. Narrative
 
 The following approach was carried out in order to analyze the patient datasets. 
 
-## a.	Understand the Data
+## a. Understand the Data
 
 The data was sourced from external sources, and consists of two sheets: pre-authorized patients, and patients with appointments. “Pre-authorized patients” is a dataset consisting of patients that are pre-authorized to book an appointment. “Patients with appointments” is a dataset consisting of all patients (direct booking and pre-authorized) that have booked an appointment. 
 
-## b.	Acquire & Inspect the Data
+## b. Acquire & Inspect the Data
 
 Setting up the machine involved determining with coding language to use (Python or SQL). Data analysis was done with Python due to the versatility. The following steps were carried out:
 
-> i. Read data into script
-
-> ii.	Population or Sample Data? – for statistic purposes
-
-> iii.  `df.head()` – first 5 rows of dataset
-
-> iv.	`df.info()` – column names, data types, and number of non-null values
-
-> v.	`df.shape()`- number of rows and columns in dataset
+    i. Read data into script
+    ii. Population or Sample Data? – for statistic purposes
+    iii. `df.head()` – first 5 rows of dataset
+    iv. `df.info()` – column names, data types, and number of non-null values
+    v. `df.shape()`- number of rows and columns in dataset
     
 If the non-null value count does not equal the row count, this provides an insight into which columns have null/missing values.
 
@@ -38,16 +34,20 @@ The first step was to remove duplicate rows, and remove unnecessary columns. Che
 
     i. Missing Data
 
-    1.	Pre-Auth: PATIENT_ID- structurally missing data, due to no PATIENT_ID if pre-authorized patient didn’t book appointment
-    2.	Patients with Appointments: Source – missing at random
+            1.	Pre-Auth: PATIENT_ID- structurally missing data, due to no PATIENT_ID if pre-authorized patient didn’t book appointment
+            
+            2.	Patients with Appointments: Source – missing at random
 
 ## d.	Exploratory Data Analysis
 
-###  1. In order to determine distinct counts, the following data map was constructed.
+###  1. Determining patient distinct counts:
 
-![image](https://github.com/anuradhases/patients_analysis/assets/49212192/4c9bc69f-7274-4f53-9459-58bd601a5131)
-
+<p align="center">
+  <img src="(https://github.com/anuradhases/nba_trends/assets/49212192/5352b5ab-adac-46a1-95bd-8dde6c4b610b)" width = 700 />
+</p>
+<div align="center">
 Figure 1. Data Map for Pre-Authorized and Patients with Appts Dataset
+</div>
 
 *no PATIENT_ID
 
@@ -55,7 +55,13 @@ i.	Checked for no overlap in PATIENT_ID in sub tables.
 
 ii.	Issues Encountered When Creating Pre-Auth Book Appt Overlap Table on PATIENT_ID:
 
-    a. 12 PATIENT_ID duplicates in the Pre-Auth Book Appt sub-table. Further investigation was performed to determine if there was a pattern. It was determined all 12 duplicates have different PRE_AUTH_IDs and are unique observations. Having the same PATIENT_ID is an issue as this proves this is not a unique identifier for each patient. No PATIENT_ID duplicates in Patients with Appts dataset. Since the duplicate value was not a large part of the PATIENT_ID overlap dataset (0.05%), it was determined to keep note of this and move forward. Data points for duplicate PATIENT IDs have same values for [‘FIRST_APPT_TIME’, ‘FIRST_NONCANCELLED_APPT_TIME’, ‘Source’].
+    a. 12 PATIENT_ID duplicates in the Pre-Auth Book Appt sub-table. 
+    Further investigation was performed to determine if there was a pattern. 
+    It was determined all 12 duplicates have different PRE_AUTH_IDs and are unique observations. 
+    Having the same PATIENT_ID is an issue as this proves this is not a unique identifier for each patient. 
+    No PATIENT_ID duplicates in Patients with Appts dataset. Since the duplicate value was not a large part of 
+    the PATIENT_ID overlap dataset (0.05%), it was determined to keep note of this and move forward. 
+    Data points for duplicate PATIENT IDs have same values for [‘FIRST_APPT_TIME’, ‘FIRST_NONCANCELLED_APPT_TIME’, ‘Source’].
     
     b. Source values as ‘db’ in the PATIENT_ID Overlap sub-table. These Source values were replaced with ‘pre-auth’, and updated in Patients with Appts dataset.
 
@@ -63,20 +69,28 @@ ii.	Issues Encountered When Creating Pre-Auth Book Appt Overlap Table on PATIENT
 
 ii.	Pre-Auth Patients Issues:
 
-    a. FIRST_NONCANCELLED_APPT_TIME values as ‘0’. These values were considered missing data and made up 10% of the dataset for pre-authorized patients. Since not enough data is known about the dataset to impute, these values were dropped. 
-    i.	In order to drop missing data and have confidence in the conclusion, missing data should be 5% or less of the dataset.
+    a. FIRST_NONCANCELLED_APPT_TIME values as ‘0’. These values were considered missing data 
+    and made up 10% of the dataset for pre-authorized patients. Since not enough data is known
+    about the dataset to impute, these values were dropped.
+    
+            i. In order to drop missing data and have confidence in the conclusion, missing data should be 5% or less of the dataset.
     
 iii.	Direct Booking Patients Issues:
 
-    a.	FIRST_NONCANCELLED_APPT_TIME values as ‘0’. These values were considered missing data and made up 4% of the dataset for pre-authorized patients. Since not enough data is known about the dataset to impute, these values were dropped. 
-    i.	In order to drop missing data and have confidence in the conclusion, missing data should be 5% or less of the dataset.
+    a. FIRST_NONCANCELLED_APPT_TIME values as ‘0’. These values were considered missing data
+    and made up 4% of the dataset for pre-authorized patients. Since not enough data is known 
+    about the dataset to impute, these values were dropped.
+    
+            i. In order to drop missing data and have confidence in the conclusion, missing data should be 5% or less of the dataset.
 
-3.	Focusing on gender distributions:
+### 3.	Focusing on gender distributions:
+
 Gender is another dimension I focused on. The following issue(s) were encountered.
 
-    i.	GENDER values as ‘0’. These values were considered missing data and made up 3% of the dataset for pre-authorized patients. Since not enough data is known about the dataset to impute, these values were dropped. 
+    i.  GENDER values as ‘0’. These values were considered missing data and made up 3% of the dataset
+    for pre-authorized patients. Since not enough data is known about the dataset to impute, these values were dropped. 
 
-    1.	In order to drop missing data and have confidence in the conclusion, missing data should be 5% or less of the dataset.
+            1. In order to drop missing data and have confidence in the conclusion, missing data should be 5% or less of the dataset.
 
 ## e.	Data Analysis Results:
 
