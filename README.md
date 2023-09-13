@@ -43,7 +43,7 @@ The first step was to remove duplicate rows, and remove unnecessary columns. Che
 ###  1. Determining patient distinct counts:
 
 <p align="center">
-  <img src="(https://github.com/anuradhases/nba_trends/assets/49212192/5352b5ab-adac-46a1-95bd-8dde6c4b610b)" width = 700 />
+  <img src="https://github.com/anuradhases/patients_analysis/assets/49212192/a987cd4b-6d9f-493f-a7a8-c5514e4fbce1" width = 700 />
 </p>
 <div align="center">
 Figure 1. Data Map for Pre-Authorized and Patients with Appts Dataset
@@ -51,7 +51,7 @@ Figure 1. Data Map for Pre-Authorized and Patients with Appts Dataset
 
 *no PATIENT_ID
 
-i.	Checked for no overlap in PATIENT_ID in sub tables.
+i.	Checked for no overlap of variable: PATIENT_ID in sub tables.
 
 ii.	Issues Encountered When Creating Pre-Auth Book Appt Overlap Table on PATIENT_ID:
 
@@ -94,31 +94,38 @@ Gender is another dimension I focused on. The following issue(s) were encountere
 
 ## e.	Data Analysis Results:
 
-1.	Question 1:
+1.	Distinct Counts
 
 | Pre-Authorized Patients Distinct Count | Direct Booking Patients Distinct Count | Total Patients Distinct Count |
 | :-----: | :---: | :---: |
 | 33784| 80 | 33865 | 
 
+<div align="center">
 Figure 2. Patient Distinct Counts
+</div>
+
 
 There is a total of 33865 patients, with 99.8% as pre-authorized and 0.2% as direct booking. It can be seen there are significantly less direct booking patients than pre-authorized patients. 
 
-2.	Question 2:
+2.	Rescheduling Rates
 
 Pre-Authorized Patients
 | Patients with First Appointment within 1 week of coverage start (%) |	Patients that Reschedule First Appointment (%) | Average Days between Rescheduled and First Appointment |
 | :-----: | :---: | :---: |
 | 12 | 15 | 17 |
 
+<div align="center">
 Figure 3. Pre-Authorized Patient Appointments Statistics
+</div>
 
 | Direct Booking Patients |
 | Patients with First Appointment within 1 week of coverage start (%) | Patients that Reschedule First Appointment (%) | Average Days between Rescheduled and First Appointment |
 | :-----: | :---: | :---: |
 | N/A* |	1 | 	1| 
 
+<div align="center">
 Figure 4. Direct Booking Patient Appointments Statistics
+</div>
 
 *see Assumptions
 
