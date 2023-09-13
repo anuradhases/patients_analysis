@@ -20,18 +20,23 @@ The data was sourced from external sources, and consists of two sheets: pre-auth
 
 Setting up the machine involved determining with coding language to use (Python or SQL). Data analysis was done with Python due to the versatility. The following steps were carried out:
 
-    i.	Read data into script
-    ii.	Population or Sample Data? – for statistic purposes
-    iii.  `df.head()` – first 5 rows of dataset
-    iv.	`df.info()` – column names, data types, and number of non-null values
-    v.	`df.shape()`- number of rows and columns in dataset
+> i. Read data into script
+
+> ii.	Population or Sample Data? – for statistic purposes
+
+> iii.  `df.head()` – first 5 rows of dataset
+
+> iv.	`df.info()` – column names, data types, and number of non-null values
+
+> v.	`df.shape()`- number of rows and columns in dataset
     
 If the non-null value count does not equal the row count, this provides an insight into which columns have null/missing values.
 
 ## c.	Data Cleaning
 
 The first step was to remove duplicate rows, and remove unnecessary columns. Checks were placed throughout the script, with command `df.info()`. The second step was to change data types of columns, and remove unnecessary characters and whitespaces if necessary.
-i.	Missing Data
+
+    i. Missing Data
 
     1.	Pre-Auth: PATIENT_ID- structurally missing data, due to no PATIENT_ID if pre-authorized patient didn’t book appointment
     2.	Patients with Appointments: Source – missing at random
@@ -222,8 +227,8 @@ WHERE Source = ‘db’;`
 
 6.	Patients with Appts no overlap: source is null:
 
-		CREATE TABLE unknown_patients AS
-`SELECT * 
+`CREATE TABLE unknown_patients AS
+SELECT * 
 FROM patients_with_appts_no_overlap
 WHERE Source IS NULL’;`
 
