@@ -20,11 +20,15 @@ The data was sourced from external sources, and consists of two sheets: pre-auth
 
 Setting up the machine involved determining with coding language to use (Python or SQL). Data analysis was done with Python due to the versatility. The following steps were carried out:
 
-    i. Read data into script
-    ii. Population or Sample Data? – for statistic purposes
-    iii. `df.head()` – first 5 rows of dataset
-    iv. `df.info()` – column names, data types, and number of non-null values
-    v. `df.shape()`- number of rows and columns in dataset
+i. Read data into script
+
+ii. Population or Sample Data? – for statistic purposes
+
+iii. `df.head()` – first 5 rows of dataset
+
+iv. `df.info()` – column names, data types, and number of non-null values
+
+v. `df.shape()`- number of rows and columns in dataset
     
 If the non-null value count does not equal the row count, this provides an insight into which columns have null/missing values.
 
@@ -32,11 +36,11 @@ If the non-null value count does not equal the row count, this provides an insig
 
 The first step was to remove duplicate rows, and remove unnecessary columns. Checks were placed throughout the script, with command `df.info()`. The second step was to change data types of columns, and remove unnecessary characters and whitespaces if necessary.
 
-    i. Missing Data
+i. Missing Data
 
-            1.	Pre-Auth: PATIENT_ID- structurally missing data, due to no PATIENT_ID if pre-authorized patient didn’t book appointment
+    1.	Pre-Auth: PATIENT_ID- structurally missing data, due to no PATIENT_ID if pre-authorized patient didn’t book appointment
             
-            2.	Patients with Appointments: Source – missing at random
+    2.	Patients with Appointments: Source – missing at random
 
 ## d.	Exploratory Data Analysis
 
@@ -55,19 +59,20 @@ i.	Checked for no overlap of variable: PATIENT_ID in sub tables.
 
 ii.	Issues Encountered When Creating Pre-Auth Book Appt Overlap Table on PATIENT_ID:
 
-    a. 12 PATIENT_ID duplicates in the Pre-Auth Book Appt sub-table. 
+    a.  12 PATIENT_ID duplicates in the Pre-Auth Book Appt sub-table. 
     Further investigation was performed to determine if there was a pattern. 
-    It was determined all 12 duplicates have different PRE_AUTH_IDs and are unique observations. 
-    Having the same PATIENT_ID is an issue as this proves this is not a unique identifier for each patient. 
-    No PATIENT_ID duplicates in Patients with Appts dataset. Since the duplicate value was not a large part of 
-    the PATIENT_ID overlap dataset (0.05%), it was determined to keep note of this and move forward. 
-    Data points for duplicate PATIENT IDs have same values for [‘FIRST_APPT_TIME’, ‘FIRST_NONCANCELLED_APPT_TIME’, ‘Source’].
+    It was determined all 12 duplicates have different PRE_AUTH_IDs and are unique observations.
+    Having the same PATIENT_ID is an issue as this proves this is not a unique identifier 
+    for each patient. No PATIENT_ID duplicates in Patients with Appts dataset. 
+    Since the duplicate value was not a large part of the PATIENT_ID overlap dataset (0.05%), 
+    it was determined to keep note of this and move forward. Data points for duplicate PATIENT
+    IDs have same values for [‘FIRST_APPT_TIME’, ‘FIRST_NONCANCELLED_APPT_TIME’, ‘Source’].
     
-    b. Source values as ‘db’ in the PATIENT_ID Overlap sub-table. These Source values were replaced with ‘pre-auth’, and updated in Patients with Appts dataset.
+    b.  Source values as ‘db’ in the PATIENT_ID Overlap sub-table. These Source values were replaced with ‘pre-auth’, and updated in Patients with Appts dataset.
 
 ### 2.	Determining rescheduling rates:
 
-ii.	Pre-Auth Patients Issues:
+i.	Pre-Auth Patients Issues:
 
     a. FIRST_NONCANCELLED_APPT_TIME values as ‘0’. These values were considered missing data 
     and made up 10% of the dataset for pre-authorized patients. Since not enough data is known
@@ -75,7 +80,7 @@ ii.	Pre-Auth Patients Issues:
     
             i. In order to drop missing data and have confidence in the conclusion, missing data should be 5% or less of the dataset.
     
-iii.	Direct Booking Patients Issues:
+ii.	Direct Booking Patients Issues:
 
     a. FIRST_NONCANCELLED_APPT_TIME values as ‘0’. These values were considered missing data
     and made up 4% of the dataset for pre-authorized patients. Since not enough data is known 
@@ -118,7 +123,7 @@ Pre-Authorized Patients
 Figure 3. Pre-Authorized Patient Appointments Statistics
 </div>
 
-| Direct Booking Patients |
+Direct Booking Patients
 | Patients with First Appointment within 1 week of coverage start (%) | Patients that Reschedule First Appointment (%) | Average Days between Rescheduled and First Appointment |
 | :-----: | :---: | :---: |
 | N/A* |	1 | 	1| 
@@ -134,26 +139,39 @@ Figure 4. Direct Booking Patient Appointments Statistics
 3.	Gender and Age Distributions
 
  Data for this variable was only present in the Pre-Auth dataset; the following analysis is for pre-authorized patients.
-
-| % Female Patients | % Female that book appointments	| % Male Patients |	% Male that book appointments |
+ 
+| Female Patients(%) | Female that book appointments(%) | Male Patients(%) | Male that book appointments(%) |
 | :-----: | :---: | :---: |
 | 68 | 73 |	32 | 	67 |
 
+<div align="center">
 Figure 5. Pre-Authorized Patients Gender % and % that Book Appointments
+</div>
 
-![image](https://github.com/anuradhases/patients_analysis/assets/49212192/97756326-25f0-4073-ad33-70639c6e972e)
+<p align="center">
+<img src="https://github.com/anuradhases/patients_analysis/assets/49212192/97756326-25f0-4073-ad33-70639c6e972e" width = 400 />
+</p>
 
+<div align="center">
 Figure 6. Pre-Authorized Patients Gender Distribution
+</div>
 
 The pre-authorized patients are 68% female and 32% male. Even though there is a significant difference in gender proportions, roughly similar proportions book appointments (~70%).
 
-![image](https://github.com/anuradhases/patients_analysis/assets/49212192/2bff2dbe-9f78-4a1c-ba28-f55bbca72086)
-
+<p align="center">
+<img src="https://github.com/anuradhases/patients_analysis/assets/49212192/2bff2dbe-9f78-4a1c-ba28-f55bbca72086" width = 600 />
+</p>
+<div align="center">
 Figure 7. Pre-Authorized Female Patients Age Distribution
+</div>
 
-![image](https://github.com/anuradhases/patients_analysis/assets/49212192/63d39492-d973-4f13-8939-b4dcaecded26)
-
+<p align="center">
+<img src="https://github.com/anuradhases/patients_analysis/assets/49212192/63d39492-d973-4f13-8939-b4dcaecded26" width = 600 />
+</p>
+<div align="center">
 Figure 8. Pre-Authorized Male Patients Age Distribution
+</div>
+
 
 Figure 7 and 8 detail the age distribution for pre-authorized female and male patients, and are sorted from highest frequency to lowest frequency. For pre-authorized female patients, majority are between ages 3 and 14 (~25%), and 21 and 30 (~23%). For pre-authorized male patients, majority are between ages 3 and 14 (~35%), and 30 and 40(~20%). 
 
