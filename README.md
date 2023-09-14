@@ -140,9 +140,9 @@ Figure 4. Direct Booking Patient Appointments Statistics
 
  Data for this variable was only present in the Pre-Auth dataset; the following analysis is for pre-authorized patients.
  
-| Female Patients(%) | Female that book appointments(%) | Male Patients(%) | Male that book appointments(%) |
-| :-----: | :---: | :---: |
-| 68 | 73 |	32 | 	67 |
+|Female Patients(%)| Female that book appointments(%) | Male Patients(%) | Male that book appointments(%) |
+| :-----: | :---: | :---: |:---: |
+| 68 | 73 |	32 | 67 |
 
 <div align="center">
 Figure 5. Pre-Authorized Patients Gender % and % that Book Appointments
