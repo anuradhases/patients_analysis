@@ -18,7 +18,7 @@ The data was sourced from external sources, and consists of two sheets: pre-auth
 
 ## b. Acquire & Inspect the Data
 
-Setting up the machine involved determining with coding language to use (Python or SQL). Data analysis was done with Python due to the versatility. The following steps were carried out:
+Setting up the machine involved determining which coding language to use (Python or SQL). Data analysis was done with Python due to the versatility. The following steps were carried out:
 
 i. Read data into script
 
