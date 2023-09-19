@@ -45,7 +45,7 @@ i. Missing Data
 ## d.	Exploratory Data Analysis
 
 ###  1. Determining patient distinct counts:
-
+The following data map was constructed to create sub-tables and account for overlap between the two datasets.
 <p align="center">
   <img src="https://github.com/anuradhases/patients_analysis/assets/49212192/a987cd4b-6d9f-493f-a7a8-c5514e4fbce1" width = 700 />
 </p>
