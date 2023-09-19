@@ -221,7 +221,7 @@ WHERE PATIENT_ID IS NULL;`
 
 2. Pre-auth Patients with appts:
 
-`CREATE TABLE patients_with_appts’ AS
+`CREATE TABLE patients_with_appts AS
 SELECT * 
 FROM pre_auth
 WHERE PATIENT_ID IS NOT NULL;`
@@ -269,7 +269,7 @@ WHERE Source = ‘db’;`
 `CREATE TABLE unknown_patients AS
 SELECT * 
 FROM patients_with_appts_no_overlap
-WHERE Source IS NULL’;`
+WHERE Source IS NULL;`
 
 
 7.	Pre-auth patients DISTINCT count:
@@ -283,7 +283,7 @@ AS Pre Auth Patients Distinct Count;`
 
 8.	Direct booking patients DISTINCT count:
 
-`SELECT COUNT (DISTINCT PATIENT_ID) AS ‘Direct Booking Patients Distinct Count
+`SELECT COUNT (DISTINCT PATIENT_ID) AS Direct Booking Patients Distinct Count
 FROM  db_patients;`
 
 9.	Total patients DISTINCT count:
