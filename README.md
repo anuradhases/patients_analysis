@@ -1,4 +1,4 @@
-# Patient Trends
+# Patients Analysis
 
  ## Table of Contents
 - [Project Overview](#projectoverview)
