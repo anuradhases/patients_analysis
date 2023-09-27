@@ -17,11 +17,11 @@ The data was sourced from external sources, and consists of two sheets: pre-auth
 - There is a significant difference in rescheduling rate between pre-authorized patients versus direct booking patients (15% vs 1%), as well as in average days for rescheduling (17 days vs 1 day). <br>
 
 ***Pre-Authorized Patients*** <br>
-- Overall 13% of pre-authorized patients book their appointment within one week of coverage. <br>
+- Overall 12% of pre-authorized patients book their appointment within one week of coverage. <br>
 - 15% of pre-authorized patients reschedule their appointment, with an average of 17 days. <br>
 - Pre-authorized patients are 68% female, and 32% male. <br>
 - On average, 70% of each gender book an appointment. <br>
-- Majority of female pre-authorized patients (50%) are between ages 3 and 14, and 21 and 30. <br>
+- Majority of female pre-authorized patients (50%) are between ages 3 and 14, and 30 and 40. <br>
 - Majority of male pre-authorized patients (50%) are between ages 3 and 14, and 30 and 40. <br>
 
 ***Direct Booking Patients*** <br>
