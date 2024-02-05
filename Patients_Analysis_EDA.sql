@@ -248,7 +248,5 @@ GROUP BY gender;
 -- 40.68% unknown book
 
 
--- What is the age distribution of pre_auth female and male patients?
-
 
 
